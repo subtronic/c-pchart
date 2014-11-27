@@ -1,5 +1,5 @@
 {
-    "name": "szymach/c-pchart",
+    "name": "subtronic/c-pchart",
     "license": "MIT",
     "type": "project",
     "description": "Port of \"pChart\" library into PHP5 standards with composer.phar support.",
