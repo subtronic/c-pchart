@@ -5354,7 +5354,7 @@ class pDraw
                             $this->drawText(
                                 $X,
                                 $Y-$DisplayOffset-$SerieWeight-$BorderSize-$PicOffset,
-                                $this->scaleFormat($Serie["Data"][$Key],$Mode,$Format,$Unit),
+                                $this->scaleFormat($Serie["Data"][$Key],$Mode,$Format,''/*$Unit*/),
                                 array("R"=>$DisplayR,"G"=>$DisplayG,"B"=>$DisplayB,"Angle"=>0,"Align"=>TEXT_ALIGN_BOTTOMMIDDLE,"DrawBox"=>TRUE,"BoxRounded"=>TRUE)
                             );
                         }
