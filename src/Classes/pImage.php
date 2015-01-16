@@ -651,7 +651,7 @@ class pImage extends pDraw
      */
     public function dumpImageMap(
         $Name="pChart",
-        $StorageMode=IMAGE_MAP_STORAGE_SESSION,
+        $StorageMode=IMAGE_MAP_STORAGE_FILE,
         $UniqueID="imageMap",
         $StorageFolder="tmp"
     ) {
