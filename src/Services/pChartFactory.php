@@ -10,7 +10,7 @@ if (!extension_loaded('gd') && !extension_loaded('gd2')) {
 }
 
 /**
- * A simple service class utilizing the Factory design pattern. It has three 
+ * A simple service class utilizing the Factory design pattern. It has three
  * class specific methods, as well as a generic loader for the chart classes.
  *
  * @author szymach
@@ -21,14 +21,14 @@ class pChartFactory
     
     /**
      * Loads a new chart class (scatter, pie etc.). Some classes require instances of
-     * pImage and pData classes passed into their constructor. These classes are: 
-     * pBubble, pPie, pScatter, pStock, pSurface and pIndicator. Otherwise the 
+     * pImage and pData classes passed into their constructor. These classes are:
+     * pBubble, pPie, pScatter, pStock, pSurface and pIndicator. Otherwise the
      * pChartObject and pDataObject parameters are redundant.
-     * 
+     *
      * ATTENTION! SOME OF THE CHARTS NEED TO BE DRAWN VIA A METHOD FROM THE
-     * pIMAGE CLASS (ex. 'drawBarChart'), NOT THROUGH THIS METHOD! READ THE 
+     * pIMAGE CLASS (ex. 'drawBarChart'), NOT THROUGH THIS METHOD! READ THE
      * DOCUMENTATION FOR MORE DETAILS.
-     * 
+     *
      * @param string $chartType - type of the chart to be loaded (for example 'pie', not 'pPie')
      * @param \CpChart\Classes\pImage $pChartObject
      * @param \CpChart\Classes\pData $pDataObject
@@ -36,7 +36,7 @@ class pChartFactory
      */
     public function newChart(
         $chartType,
-        pImage $pChartObject = null, 
+        pImage $pChartObject = null,
         pData $pDataObject = null
     ) {
         $this->checkChartType($chartType);
@@ -51,7 +51,7 @@ class pChartFactory
      * Checks if the requested chart type is created via one of the methods in
      * the pDraw class, instead through a seperate class. If a method in pDraw
      * exists, an exception with proper information is thrown.
-     * 
+     *
      * @param string $chartType
      * @throws \Exception
      */
@@ -75,7 +75,7 @@ class pChartFactory
     
     /**
      * Creates a new pData class with an option to pass the data to form a serie.
-     * 
+     *
      * @param array $points - points to be added to serie
      * @param string $serieName - name of the serie
      * @return \CpChart\Classes\pData
@@ -83,7 +83,7 @@ class pChartFactory
     public function newData(array $points = array(), $serieName = "Serie1")
     {
         $className = $this->namespace.'pData';
-        $data = new $className(); 
+        $data = new $className();
         if (count($points) > 0) {
             $data->addPoints($points, $serieName);
         }
@@ -93,7 +93,7 @@ class pChartFactory
     /**
      * Create a new pImage class. It requires the size of axes to be properly
      * constructed.
-     * 
+     *
      * @param integer $XSize - length of the X axis
      * @param integer $YSize - length of the Y axis
      * @param \CpChart\Classes\pData $DataSet - pData class populated with points
@@ -119,7 +119,7 @@ class pChartFactory
      * Create one of the pBarcode classes. Only the number is required (39 or 128),
      * the class name is contructed on the fly. Passing the constructor's parameters
      * is also available, but not mandatory.
-     * 
+     *
      * @param string $number - number identifing the pBarcode class ("39" or "128")
      * @param string $BasePath - optional path for the file containing the class data
      * @param boolean $EnableMOD43
